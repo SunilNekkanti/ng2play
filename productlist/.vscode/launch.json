@@ -1,0 +1,49 @@
+{ 
+  "version": "0.2.0", 
+  "configurations": [ 
+    { 
+      /** allows you to launch Chrome, and load app with sourcemaps in place -  
+          can then set breakpoints and on reload they will be hit. 
+                 
+                Requirements: 
+                - VS Code must have the "Debugger for Chrome" extension installed 
+                - Chrome must *not* already be running - check task manager  
+                  (or if it is, it must use a different userDataDir so instances don't conflict) 
+                - app must be running (npm start / ng serve) on port specified below (url) 
+                - VSCode must have the project folder open (File --> Open Folder) for sourcemaps to work 
+                Usage: 
+                - close all Chrome instances  
+                  (unless they're explicitly using different profiles/userDataDir') 
+                - npm start 
+                - debug screen in VSCode  
+                - choose "Launch Chrome against localhost, with sourcemaps" profile 
+                - click Play 
+                Chrome will launch, and load app  
+                Set any breakpoints you need, and refresh app.  
+                Voila. 
+            */ 
+      "name": "Launch Chrome against localhost, with sourcemaps", 
+      "type": "chrome", 
+      "request": "launch", 
+      "url": "http://localhost:4200", 
+      "sourceMaps": true, 
+      "webRoot": "${workspaceRoot}", 
+      //"runtimeExecutable": "google-chrome-unstable", 
+      "trace": true, // human readable diag info on the console  
+                                  // (SourceMap messages, attaching to Chrome process, etc),  
+                                  // and TONS of debug text saved to vscode-chrome-debug.txt 
+      //"userDataDir": "${workspaceRoot}/.vscode/chrome", // optionally run Chrome using a separate profile 
+      "sourceMapPathOverrides": { 
+        "webpack:///./*": "${webRoot}/*" 
+      } 
+    }, 
+    { 
+      "name": "Attach to Chrome, with sourcemaps", 
+      "type": "chrome", 
+      "request": "attach", 
+      "port": 9222, 
+      "sourceMaps": true, 
+      "webRoot": "${workspaceRoot}" 
+    } 
+  ] 
+}
