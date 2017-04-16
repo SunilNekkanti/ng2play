@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'rating',
-    templateUrl: 'rating.components.html'
+    templateUrl: './rating.component.html'
 })
 
-export class RatingComponent{
+export class RatingComponent {
     rating = 0;
-
-    onClick(ratingValue){
+    onClick(ratingValue) {
         this.rating = ratingValue;
     }
 }

@@ -2,13 +2,18 @@
 
 <ul>
     <li *ngFor="let advert of adverts">
-        <button (click)=onClick($event) [class.active]="isActive" [style.background]="isActive?'blue':'gray'" class="btn btn-primary btn-xs">Like</button> {{advert}}
+        <button (click)=onClick($event) [class.active]="isActive" [style.background]="isActive?'blue':'gray'" class="btn btn-primary btn-xs">Like</button>        
+        {{advert}}
+<br/>
+        <rating></rating>
     </li>
+
 
     <!--there is a directive called ngModel to create two way binding between a
     component property and a DOM property in the view. Remember that a directive is a
     class that allows us to control or extend the behavior of a DOM-->
-    
-    <input type="text" [(ngModel)]="typedText" />
-    What do you mean "{{typedText}}"
+
+    <input type="text" [(ngModel)]="typedText" /> What do you mean "{{typedText}}"
 </ul>
+
+<p><span class="glyphicon glyphicon-star"> test glyphicon</span></p>

@@ -3,20 +3,18 @@
 </h1>
 <!--<img src="{{imageUrl}}" />-->
 <!--<img [src]="imageUrl" />-->
-<img bind-src="imageUrl" />
+<!--<img bind-src="imageUrl" />-->
 <products></products>
 <hr/>
 
 <advertisement></advertisement>
 <br/>
 
-<rating></rating>
-
-<div>{{ 'HELLO' | translate:param }}</div>
+<div>{{ 'HELLO' | translate }}</div>
 <div>{{imageUrl}}</div>
 
 <ul>
     <li *ngFor="let test of testArray">
-        {{test | translate: param2}}
+        {{ test | translate }}
     </li>
 </ul>

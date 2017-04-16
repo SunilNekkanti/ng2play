@@ -6,32 +6,41 @@ import { HttpModule, Http } from '@angular/http';
 import { AppComponent } from './app.component';
 
 import { ProductsComponent } from './products.component';
-import {AdvertsComponent} from './adverts.compontent';
+import { AdvertsComponent } from './adverts.compontent';
 
-import {RatingComponent} from './rating.component';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { RatingComponent } from './rating/rating.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
-    return new TranslateHttpLoader(http, '/locale/', '.json');
+  return new TranslateHttpLoader(http, '/locale/', '.json');
+}
+
+export class App {
 }
 
 // entry point to application
 @NgModule({
   declarations: [ // to declare which components, directives or pipes are in this module
-    AppComponent, ProductsComponent, AdvertsComponent, RatingComponent
+    AppComponent,
+    ProductsComponent,
+    AdvertsComponent,
+    RatingComponent
   ],
   imports: [ // to specify what other modules do we use for this module
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgbModule.forRoot(),
     TranslateModule.forRoot({
-        loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [Http]
-            }
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [Http]
+      }
     })
   ],
   providers: [], // to specify any application wide services we want to use
