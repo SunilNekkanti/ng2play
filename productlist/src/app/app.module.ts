@@ -5,7 +5,8 @@ import { HttpModule, Http } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-import { ProductsComponent } from './products.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductComponent } from './product/product.components';
 import { AdvertsComponent } from './adverts.compontent';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -16,7 +17,7 @@ import { RatingComponent } from './rating/rating.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
-  return new TranslateHttpLoader(http, '/locale/', '.json');
+  return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
 }
 
 export class App {
@@ -27,6 +28,7 @@ export class App {
   declarations: [ // to declare which components, directives or pipes are in this module
     AppComponent,
     ProductsComponent,
+    ProductComponent,
     AdvertsComponent,
     RatingComponent
   ],

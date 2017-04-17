@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
-import {ProductService} from './product.service';
+import {ProductService} from './product/product.service';
 import {AdvertsService} from './adverts.service';
 import {TranslateService} from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 
 // At the very core, we have components. A component encapsulates the template, data and
 // behavior of a view. It is actually more accurate to call it a view component
@@ -23,11 +22,12 @@ export class AppComponent {
 //  param = {value: 'world'};
  // param2 = {value: 'test'};
 
+
   constructor(translate: TranslateService){
     this.testArray = ['coca cola', 'coffee beans', 'shell garage', 'three star hotel', 'spam advert', 'test'];
     translate.addLangs(["af", "es"]);
       // this language will be used as a fallback when a translation isn't found in the current language
-        translate.setDefaultLang('af');
+        translate.setDefaultLang('en');
 
          // the lang to use, if the lang isn't available, it will use the current loader to get them
         translate.use('af');
