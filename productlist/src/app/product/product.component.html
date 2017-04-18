@@ -1,11 +1,10 @@
 <div class="media">
     <div class="media-left">
         <a href="#">
-            <img class="media-object" src="{{data.ImageUrl}}" alt="...">
+            <img class="media-object" src="{{data.ImageUrl}}" alt="{{ data.productName }}">
         </a>
     </div>
     <div class="media-body">
-
         <h4 class="media-heading">{{ data.productName }}</h4>
         {{ data.releasedDate }}
         <rating [rating-value]="data.rating" [numOfReviews]="data.numOfReviews">
